@@ -1,6 +1,4 @@
 import { Base } from '@studiometa/js-toolkit';
-import { animate } from 'motion';
-
 import Shuffle from 'shufflejs';
 
 export default class Search extends Base {
@@ -16,7 +14,6 @@ export default class Search extends Base {
       const shuffleInstance = new Shuffle(section, {
         itemSelector: '[data-ref="elements[]"]',
         delimiter: ',',
-        sizer: '.sizer',
       });
 
       this.elementsInstances.push(shuffleInstance);
