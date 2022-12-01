@@ -1,3 +1,3 @@
-# poc-slider
+# poc-search
 
-[Live demo](https://deluxe-truffle-ddcc33.netlify.app/)
+[Live demo](https://relaxed-melomakarona-4ad38f.netlify.app/)
