@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="./index.scss">
+  </head>
+  <body>
+    {% set slides = [
+      {
+        image: './assets/julien-verneaut-woZCb0dmToM-unsplash.jpg',
+        title: 'Ville de Rosheim',
+        slug: 'rosheim',
+        hex: '#3f1c1a'
+      },
+      {
+        image: './assets/alexander-kagan-t9Td0zfDTwI-unsplash.jpg',
+        title: 'Ville de Paris',
+        slug: 'paris',
+        hex: '#273243'
+      },
+      {
+        image: './assets/jonathan-marchal-Ri7a52Y0fpw-unsplash.jpg',
+        title: 'Ville de Strasbourg',
+        slug: 'strasbourg',
+        hex: '#55636e'
+      },
+    ] %}
+
+    {% block content endblock %}
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

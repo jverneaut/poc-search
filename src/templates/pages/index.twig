@@ -1,0 +1,145 @@
+{% extends '../layouts/base.twig' %}
+
+{% set items = {
+  A: [
+    {
+      title: 'A lorem 1',
+      type: '1'
+    },
+    {
+      title: 'A lorem 2',
+      type: '1'
+    },
+    {
+      title: 'A lorem 3',
+      type: '2'
+    },
+    {
+      title: 'A lorem 4',
+      type: '2'
+    }
+  ],
+  B: [
+    {
+      title: 'B lorem 1',
+      type: '1'
+    },
+    {
+      title: 'B lorem 2',
+      type: '1'
+    },
+    {
+      title: 'B lorem 3',
+      type: '2'
+    },
+    {
+      title: 'B lorem 4',
+      type: '2'
+    }
+  ],
+  C: [
+    {
+      title: 'C lorem 1',
+      type: '3'
+    },
+    {
+      title: 'C lorem 2',
+      type: '3'
+    },
+    {
+      title: 'C lorem 3',
+      type: '2'
+    },
+    {
+      title: 'C lorem 4',
+      type: '2'
+    }
+  ],
+  D: [
+    {
+      title: 'C lorem 1',
+      type: '3'
+    },
+    {
+      title: 'C lorem 2',
+      type: '3'
+    },
+    {
+      title: 'C lorem 3',
+      type: '4'
+    },
+    {
+      title: 'C lorem 4',
+      type: '4'
+    }
+  ],
+  E: [
+    {
+      title: 'C lorem 1',
+      type: '5'
+    },
+    {
+      title: 'C lorem 2',
+      type: '5'
+    },
+    {
+      title: 'C lorem 3',
+      type: '5'
+    },
+    {
+      title: 'C lorem 4',
+      type: '5'
+    }
+  ]
+} %}
+
+{% set types = ['1', '2', '3', '4', '5'] %}
+
+{% block content %}
+  <div data-component="Search">
+    <div class="bg-white sticky top-0 px-7 py-4 border-b flex items-center space-x-6 z-10">
+      <input type="text"
+        data-ref="search"
+        class="bg-slate-200 placeholder:text-slate-500 p-5 w-80"
+        placeholder="Recherche" />
+      <select data-ref="types"
+        class="bg-slate-200 placeholder:text-slate-500 p-5 w-80">
+        <option value="">
+          Types
+        </option>
+        {% for type in types %}
+          <option value="{{ type }}">
+            Type {{ type }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="px-7 flex flex-col gap-y-24 my-12">
+      {% for key, item in items %}
+        <div class="space-y-6">
+          <h2 class="text-3xl font-bold">
+            {{ key }}
+          </h2>
+          <div class="flex flex-row flex-wrap -mx-5 -my-5"
+            data-ref="sections[]">
+            {% for el in item %}
+              <div class="w-1/3 space-y-2 sizer px-5 py-5"
+                data-ref="elements[]"
+                data-groups="{{ el.type }}"
+                data-title="{{ el.title }}">
+                <div class="w-full h-44 bg-slate-200"></div>
+                <h3 class="text-lg font-medium">
+                  {{ el.title }}
+                </h3>
+                <span class="uppercase text-slate-500 font-medium">
+                  Type {{ el.type }}
+                </span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
